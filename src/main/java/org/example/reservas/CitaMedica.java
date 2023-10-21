@@ -8,26 +8,26 @@ import java.time.LocalDateTime;
 public class CitaMedica extends Reserva implements CitraPrioritaria {
 
     private boolean pagaMedicianPrepagada;
-    private String tipoDeCita;
+//    private String tipoDeCita;
 
-    public CitaMedica(User user, String pago, boolean pagaMedicianPrepagada, String tipoDeCita) {
+    public CitaMedica(User user, String pago, boolean pagaMedicianPrepagada) {
         super(user, pago);
         this.pagaMedicianPrepagada = pagaMedicianPrepagada;
-        this.tipoDeCita = tipoDeCita;
+//        this.tipoDeCita = tipoDeCita;
     }
 
-//    public enum TipoCita{
-//        GENERAL,
-//        ESPECIALISTA,
-//        ODONTOLOGO
-//    }
+    public enum TipoCita{
+        GENERAL,
+        ESPECIALISTA,
+        ODONTOLOGO
+    }
 
-    public void solicitarCita() {
+    public void solicitarCita(TipoCita tipo) {
 
-        switch (tipoDeCita.toLowerCase()){
-            case "general" -> System.out.println("Haz solicitado cita con medico General");
-            case "especialista" -> System.out.println("Haz solicitado cita con Especialista ");
-            case "odontolog" -> System.out.println("Haz solicitado cita con Odontologo ");
+        switch (tipo){
+            case GENERAL -> System.out.println("Haz solicitado cita con medico General");
+            case ESPECIALISTA -> System.out.println("Haz solicitado cita con Especialista ");
+            case ODONTOLOGO -> System.out.println("Haz solicitado cita con Odontologo ");
             default -> System.out.println("Ingresa un tipo de cita valido");
 
         }
